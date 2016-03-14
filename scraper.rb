@@ -25,6 +25,7 @@
 # called "data".
 
 require 'mechanize'
+require 'scraperwiki'
 
 agent = Mechanize.new
 url = 'https://morph.io/documentation/examples/australian_members_of_parliament'
@@ -41,5 +42,7 @@ url = 'https://morph.io/documentation/examples/australian_members_of_parliament'
     }
 
     p member
+    ScraperWiki.save_sqlite([:title], member)
+    
   end
 end
